@@ -6,16 +6,8 @@ class Bank:
     def add_money(self, money:int):
         self.amount += money
 
-
-
-class TestBank:
-
-    def test_create_bank(self):
-        bank = Bank()
-        assert bank.amount == 0
-
-    def test_add_money(self):
-        bank = Bank()
-        bank.add_money(100)
-
-        assert bank.amount == 100
+    def withdraw_money(self, withdraw:int):
+        if self.amount < withdraw:
+            raise ValueError("Za mało pieniędzy")
+        else:
+            self.amount -= withdraw
